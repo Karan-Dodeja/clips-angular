@@ -1,0 +1,15 @@
+User:
+Login
+Registration
+Authentication persistence
+
+Videos:
+Upload 
+Manage
+View
+
+Step's to begin:
+UI
+Form validation
+Database
+State Management
