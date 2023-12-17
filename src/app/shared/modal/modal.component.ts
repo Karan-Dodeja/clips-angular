@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalService } from '../../service/modal.service';
 
 @Component({
@@ -8,8 +8,10 @@ import { ModalService } from '../../service/modal.service';
 })
 export class ModalComponent implements OnInit {
   
+  @Input() modalID = ''
+
   closeModal() {
-    this.modal.toggleModal
+    this.modal.toggleModal(this.modalID)
   }
 
   constructor(public modal: ModalService) { 
