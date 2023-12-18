@@ -23,10 +23,14 @@ export class RegisterComponent {
     Validators.required,
     Validators.email
   ])
-  age= new FormControl('')
-  password= new FormControl('')
-  confirm_password= new FormControl('')
-  phoneNumber= new FormControl('')
+  age= new FormControl('', [
+    Validators.required,
+    Validators.min(18),
+    Validators.max(120)
+  ])
+  password= new FormControl('',[])
+  confirm_password= new FormControl('',[])
+  phoneNumber= new FormControl('',[])
 
   registerForm = new FormGroup({
     name: this.name,

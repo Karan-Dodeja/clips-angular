@@ -6,7 +6,13 @@
     <p *ngIf="control.errors?.['minlength']" class="text-red-400">Value you entered should be {{
         control.errors?.['minlength'].actualLength }} long. But it must be at least {{
         control.errors?.['minlength'].requiredLength }} characters long. </p>
-        <p class="text-red-400" *ngIf="control.errors?.['email']">
-            you must enter valid email.
-        </p>
+    <p class="text-red-400" *ngIf="control.errors?.['email']">
+        you must enter valid email.
+    </p>
+    <p *ngIf="control.errors?.['min']" class="text-red-400">
+        Value too low.
+    </p>
+    <p *ngIf="control.errors?.['max']" class="text-red-400">
+        Value too high.
+    </p>
 </ng-container>
