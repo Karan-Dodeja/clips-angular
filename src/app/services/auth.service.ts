@@ -20,11 +20,20 @@ export class AuthService {
     const userCred = await this.auth.createUserWithEmailAndPassword(
       userData.email as string, userData.password as string
     )
-    await this.usersCollection.add({
+
+    if (!userCred.user) {
+      throw new Error("User can not be found!")
+    }
+
+    await this.usersCollection.doc(userCred.user?.uid).set({
       name: userData.name,
       email: userData.email,
       age: userData.age,
       // phoneNumber: userData.phoneNumber
     }) // Create collection named users and add properties that want to save
+
+    await userCred.user.updateProfile({
+      displayName: userData.name
+    })
   }
 }
