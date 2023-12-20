@@ -24,6 +24,7 @@ export class AuthService {
     if (!userData.password) {
       throw new Error("password not provided!")
     }
+
     const userCred = await this.auth.createUserWithEmailAndPassword(
       userData.email as string, userData.password as string
     )
