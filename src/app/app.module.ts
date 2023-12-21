@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { VideoModule } from './video/video.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     UserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    VideoModule
   ],
   providers: [
     provideClientHydration()

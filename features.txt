@@ -14,4 +14,12 @@ Form validation
 Database
 State Management
 
+Generate class:
 ng g class ...
+
+Generate Routing Module:
+ng g module ModuleName --routing
+
+Generate component:
+ng g component path/ComponentName
+
