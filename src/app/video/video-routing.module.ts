@@ -18,6 +18,10 @@ const routes: Routes = [
     data: {
       authOnly: true
     }
+  },
+  {
+    path: 'manage-clips',
+    redirectTo: 'manage' // Redirect to require path
   }
 ];
 
