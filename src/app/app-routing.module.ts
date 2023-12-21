@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ClipComponent } from './clip/clip.component';
+
 
 const routes: Routes = [
   {
@@ -13,7 +15,8 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    
+    path: 'clip/:id', //a route parameter is the placeholder for any value
+    component: ClipComponent    
   }
 ];
 
