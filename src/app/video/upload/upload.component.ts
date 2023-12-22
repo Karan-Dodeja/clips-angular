@@ -13,6 +13,10 @@ import { v4 as uuid } from 'uuid';
     isDragover = false
     file: File | null = null
     nextStep = false
+    showAlert = false
+    alertColor = 'blue'
+    alertMsg = 'Please wait! your clip being uploaded.'
+    inSubmission = false
 
     title = new FormControl('', {
       validators: [
@@ -46,6 +50,12 @@ import { v4 as uuid } from 'uuid';
 
     }
     uploadFile() {
+
+      this.showAlert = true
+      this.alertColor = 'blue'
+      this.alertMsg = 'Please wait! your clip being uploaded.'
+      this.inSubmission = true
+
       const clipFielName = uuid() // return random unique id
       const clipPath = `clips/${this.file?.name}.mp4`
 
