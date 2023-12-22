@@ -14,6 +14,17 @@ Form validation
 Database
 State Management
 
+Upload Section: 
+ Client: 
+  transferring the file to the server.
+  handling file presentation.
+ Server:
+  Validating the Upload.
+  Storing the file.
+  File permissions.
+  Creating the API for the client to send the file.
+
+Commands:
 Generate class:
 ng g class ...
 
