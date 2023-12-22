@@ -64,6 +64,7 @@ export class UploadComponent implements OnInit {
 
   }
   uploadFile() {
+    this.uploadForm.disable()
 
     this.showAlert = true
     this.alertColor = 'blue'
@@ -102,6 +103,7 @@ export class UploadComponent implements OnInit {
         this.showPercentage = false
       },
       error: (error) => {
+        this.uploadForm.enable()
         this.alertColor = 'red'
         this.alertMsg = 'Upload failed! try again later.'
         this.inSubmission = true
