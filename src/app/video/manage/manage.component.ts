@@ -13,6 +13,7 @@ export class ManageComponent implements OnInit {
 
   videoOrder = '1';
   clips: IClip[] = [] // Indicates value will be array
+  activeClip: IClip | null = null
 
   constructor(
     public router: Router,
@@ -48,6 +49,7 @@ export class ManageComponent implements OnInit {
 
   openModal($event: Event, clip: IClip) {
     $event.preventDefault()
+    this.activeClip = clip
     this.modal.toggleModal('editClip')
   }
 
