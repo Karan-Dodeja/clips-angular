@@ -6,6 +6,7 @@ import { last, switchMap } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app'
 import { ClipService } from '../../services/clip.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,7 +43,8 @@ export class UploadComponent implements OnInit, OnDestroy {
   constructor(
     private storage: AngularFireStorage,
     private auth: AngularFireAuth,
-    private clipsService: ClipService
+    private clipsService: ClipService,
+    private router: Router
   ) {
     auth.user.subscribe(user => this.user = user)
   }
@@ -72,6 +74,7 @@ export class UploadComponent implements OnInit, OnDestroy {
     this.nextStep = true
 
   }
+
   uploadFile() {
     this.uploadForm.disable()
 
@@ -96,7 +99,7 @@ export class UploadComponent implements OnInit, OnDestroy {
       last(),
       switchMap(() => clipRef.getDownloadURL())
     ).subscribe({
-      next: (url) => {
+      next: async (url) => {
         const clip = {
           uid: this.user?.uid as string,
           displayName: this.user?.displayName as string,
@@ -105,11 +108,17 @@ export class UploadComponent implements OnInit, OnDestroy {
           url
         }
 
-        this.clipsService.createClip(clip)
+        const clipDocRef = await this.clipsService.createClip(clip)
 
         this.alertColor = 'green'
         this.alertMsg = 'Success!'
         this.showPercentage = false
+
+        setTimeout(() => {
+          this.router.navigate([
+            'clip',clipDocRef.id
+          ])
+        },1000)
       },
       error: (error) => {
         this.uploadForm.enable()
@@ -122,4 +131,5 @@ export class UploadComponent implements OnInit, OnDestroy {
     })
 
   }
+
 }
