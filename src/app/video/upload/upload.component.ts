@@ -17,6 +17,7 @@ import { v4 as uuid } from 'uuid';
     alertColor = 'blue'
     alertMsg = 'Please wait! your clip being uploaded.'
     inSubmission = false
+    percentage = 0 
 
     title = new FormControl('', {
       validators: [
@@ -59,6 +60,10 @@ import { v4 as uuid } from 'uuid';
       const clipFielName = uuid() // return random unique id
       const clipPath = `clips/${this.file?.name}.mp4`
 
-      this.storage.upload(clipPath, this.file)
+      const task = this.storage.upload(clipPath, this.file)
+      
+      task.percentageChanges().subscribe(progress => {
+        this.percentage = progress as number / 100
+      })
     }
   }
