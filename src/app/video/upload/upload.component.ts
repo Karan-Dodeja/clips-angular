@@ -8,7 +8,6 @@ import firebase from 'firebase/compat/app'
 import { ClipService } from '../../services/clip.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -105,7 +104,8 @@ export class UploadComponent implements OnInit, OnDestroy {
           displayName: this.user?.displayName as string,
           title: this.title.value,
           fileName: `${clipFielName}.mp4`,
-          url
+          url,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }
 
         const clipDocRef = await this.clipsService.createClip(clip)
