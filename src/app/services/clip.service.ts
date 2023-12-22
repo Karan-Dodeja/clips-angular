@@ -40,4 +40,10 @@ export class ClipService {
     )
   }
 
+  updateClip(id: string | null, title: string) {
+    return this.clipsCollection.doc([id].toString()).update({
+      title
+    })
+  }
+
 }
