@@ -32,7 +32,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "input": "node_modules/@ffmpeg/core/dist",
+                "output": "node_modules/@ffmpeg/core/dist",
+                "glob":"*"
+              }
             ],
             "styles": [
               "src/styles.css"
@@ -78,7 +83,13 @@
               "buildTarget": "clips:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "headers": {
+              "Cross-Origin-Opener-Policy":"same-origin",
+              "Cross-Origin-Embedder-Policy":"require-corp"
+            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
