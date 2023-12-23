@@ -58,8 +58,8 @@ export class FfmpegService {
       const screenshotFile = this.ffmpeg.FS('readFile', `output_0${second}.png`)
       const screenshotBlob = new Blob(
         [screenshotFile.buffer], {
-          type: 'image/png'
-        }
+        type: 'image/png'
+      }
       )
 
       const screenshotURL = URL.createObjectURL(screenshotBlob)
@@ -70,6 +70,13 @@ export class FfmpegService {
 
     return screenshots
 
+  }
+
+  async blobFromURL(url: string) {
+    const response = await fetch(url)
+    const blob = await response.blob()
+
+    return blob
   }
 
 }
