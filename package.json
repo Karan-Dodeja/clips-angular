@@ -25,11 +25,14 @@
     "@ffmpeg/core": "^0.12.5",
     "@ffmpeg/ffmpeg": "^0.11.6",
     "@types/uuid": "^9.0.7",
+    "@types/video.js": "^7.3.56",
+    "@videojs/themes": "^1.0.1",
     "express": "^4.18.2",
     "ngx-mask": "^17.0.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "uuid": "^9.0.1",
+    "video.js": "^8.6.1",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
