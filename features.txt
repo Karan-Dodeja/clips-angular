@@ -34,3 +34,4 @@ ng g module ModuleName --routing
 Generate component:
 ng g component path/ComponentName
 
+For Testing in use Karma&Jasmine.
