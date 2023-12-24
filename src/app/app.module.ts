@@ -13,6 +13,7 @@ import { VideoModule } from './video/video.module';
 import { ClipComponent } from './clip/clip.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ClipsListComponent } from './clips-list/clips-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     HomeComponent,
     AboutComponent,
     ClipComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ClipsListComponent
   ],
   imports: [
     BrowserModule,
